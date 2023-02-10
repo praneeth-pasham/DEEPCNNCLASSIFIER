@@ -11,7 +11,6 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -31,3 +30,12 @@ jobs:
         pip install -r requirements.txt
     - name: Test with tox
       run: tox
+      
+  lint:
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Super-Linter
+      uses: github/super-linter@v4.10.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
