@@ -32,7 +32,7 @@ jobs:
       run: tox
       
   lint:
-    runs-on: ubuntu-latest 
+    runs-on: matrix.os 
     steps:
     - uses: actions/checkout@v2
     - name: Super-Linter
